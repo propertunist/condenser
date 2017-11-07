@@ -15,7 +15,7 @@
     "test:watch": "npm run mocha -- --watch --watch-extensions jsx",
     "eslint": "LIST=`git diff-index --name-only HEAD | grep .*\\.js | grep -v json`; if [ \"$LIST\" ]; then eslint $LIST; fi",
     "production": "NODE_ENV=production node lib/server/index.js",
-    "start": "NODE_ENV=development ./node_modules/babel-cli/bin/babel-node.js ./webpack/dev-server.js",
+    "start": "node scripts/check_translations.js; NODE_ENV=development SDC_ADDRESS_PREFIX=\"STX\s" SDC_CHAIN_ID=\"79276aea5d4877d9a25892eaa01b0adf019d3e5cb12a97478df3298ccdd01673\" SDC_SERVER_STEEMD_URL=\"wss://testnet.steem.vc\" SDC_CLIENT_STEEMD_URL=\"wss://testnet.steem.vc\" ./node_modules/babel-cli/bin/babel-node.js ./webpack/dev-server.js",
     "webpush": "./node_modules/babel-cli/bin/babel-node.js ./scripts/webpush_notify.js",
     "checktranslations": "node scripts/check_translations.js"
   },
